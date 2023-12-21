@@ -207,7 +207,7 @@ label {
   cursor: pointer;
   background-color: var(--active-color);
 }
-.btn:disabled{
+#submit_order_btn:disabled{
   cursor: default;
 }
 .btn-active:hover,
