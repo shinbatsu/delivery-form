@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bolid Form</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="order_form">
+      <div class="form_logo">
+        <a href="https://bolid.ru/" target="_blank">
+          <img src="img/logo.png" alt="log">
+        </a>
+      </div>
+      <div class="form_close_btn">
+      </div>
+      <div class="order_form_body">
+        <form action="https://bolid.ru/" method="post" enctype="multipart/form-data">
+          <div class="form_item">
+            <label for="name-input">*Имя</label>
+            <div class="form_input">
+              <input type="text" name="username" , id="name-input" , value="" , placeholder="BOLID" ,
+                autocapitalize="off" ,autocorrect="off" ,autocomplete="name" , autofocus="autofocus" />
+            </div>
+            <div class="input_hint">
+              <p id="name-hint"></p>
+            </div>
+          </div>
+
+          <div class="form_item">
+            <label for="tel-input">*Номер телефона</label>
+            <div class="form_input">
+              <input type="tel" name="tel" , value="" , id="tel-input" , placeholder="81234567890" ,
+                autocapitalize="off" ,autocorrect="off" ,autocomplete="tel" , autofocus="autofocus" />
+            </div>
+            <div class="input_hint">
+              <p id="tel-hint"></p>
+            </div>
+          </div>
+
+          <div class="form_item">
+            <label for="date-input">*Дата доставки</label>
+            <div class="form_input">
+              <input type="text" name="username" , value="" , id="date-input" , placeholder="ДД.ММ.ГГГГ" />
+            </div>
+            <div class="input_hint">
+              <p id="date-hint"></p>
+            </div>
+          </div>
+          <div class="form_buttons">
+            <div class="btn btn-active">
+              <button type="reset">Очистить</button>
+            </div>
+            <div class="btn" id="submit-form-btn">
+              <button type=" submit" disabled id="submit_order_btn"> ОК</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script defer src="script/script.js"></script>
+
+</html>
