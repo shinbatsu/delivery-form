@@ -211,6 +211,9 @@ label {
 #submit_order_btn:disabled{
   cursor: default;
 }
+#submit_order_btn:enabled{
+  cursor: pointer;
+}
 .btn-active:hover,
 .btn-active:focus {
   background-color: var(--active-color-a);
