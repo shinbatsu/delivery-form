@@ -109,7 +109,12 @@ button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
-
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+}
 label {
   cursor: pointer;
 }
@@ -131,8 +136,8 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  min-width: 450px;
-  min-height: 370px;
+  min-width: 150px;
+  min-height: 300px;
   padding: 30px 20px;
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
@@ -177,7 +182,6 @@ label {
 .form_input {
   transition: 0.3s;
   width: 100%;
-  min-width: 370px;
 
   border: 3px solid var(--base-color);
   border-radius: 15px;
@@ -207,12 +211,6 @@ label {
 .btn-active {
   cursor: pointer;
   background-color: var(--active-color);
-}
-#submit_order_btn:disabled{
-  cursor: default;
-}
-#submit_order_btn:enabled{
-  cursor: pointer;
 }
 .btn-active:hover,
 .btn-active:focus {
