@@ -2,68 +2,78 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style/style.css" />
-  <link rel="icon" href="img/tab_icon.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bolid Form</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/tab_icon.png">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/modal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolid Web Form</title>
 </head>
 
 <body>
-  <div class="container">
-    <div class="order_form">
-      <div class="form_logo">
-        <a href="https://bolid.ru/" target="_blank">
-          <img src="img/logo.png" alt="log">
-        </a>
-      </div>
-      <div class="form_close_btn">
-      </div>
-      <div class="order_form_body">
-        <form action="https://bolid.ru/" method="post" enctype="multipart/form-data">
-          <div class="form_item">
-            <label for="name-input">*Имя</label>
-            <div class="form_input">
-              <input type="text" name="username" , id="name-input" , value="" , placeholder="BOLID" ,
-                autocapitalize="off" ,autocorrect="off" ,autocomplete="name" , autofocus="autofocus" />
+    <div class="container">
+        <form action="#" , id="order-form">
+            <div class="order__form">
+                <div class="order__form__header">
+                    <div class="order__form__logo">
+                        <a href="https://bolid.ru/" target="_blank">
+                            <img src="img/logo.png" alt="log">
+                        </a>
+                    </div>
+                    <div class="order__form__close" , id="close-form-button">
+                        <img src="img/cross.svg" alt="cross">
+                    </div>
+                </div>
+                <div class="order__form__item">
+                    <label class="order__form__label" , for="name-input">*Имя</label>
+                    <div class="order__form__input" , id="form-name-input">
+                        <input type="text" name="username" , id="name-input" , value="" , placeholder="BOLID" ,
+                            autocapitalize="off" ,autocorrect="off" ,autocomplete="off" , autofocus="autofocus" />
+                    </div>
+                    <div class="form__input__hint">
+                        <p id="name-hint"></p>
+                    </div>
+                </div>
+                <div class="order__form__item">
+                    <label class="order__form__label" , for="tel-input">*Номер телефона</label>
+                    <div class="order__form__input" , id="form-tel-input">
+                        <input type="tel" name="tel" , value="" , id="tel-input" , placeholder="+7" ,
+                            autocapitalize="off" ,autocorrect="off" ,autocomplete="off" , autofocus="autofocus" />
+                    </div>
+                    <div class="form__input__hint">
+                        <p id="tel-hint"></p>
+                    </div>
+                </div>
+                <div class="order__form__item">
+                    <label class="order__form__label" ,for="date-input">*Дата доставки</label>
+                    <div class="order__form__input" , id="form-date-input">
+                        <input type="text" name="username" , value="" , id="date-input" ,autocomplete="off" ,
+                            placeholder="ДД.ММ.ГГГГ" />
+                    </div>
+                    <div class="form__input__hint">
+                        <p id="date-hint"></p>
+                    </div>
+                </div>
+                <div class="order__form__item">
+                    <div class="order__form__nav">
+                        <button class="order__form__button" , type="reset">Очистить</button>
+                        <button class="order__form__button" , disabled type="submit" id="submit_order_btn">
+                            Заказать</button>
+                    </div>
+                </div>
             </div>
-            <div class="input_hint">
-              <p id="name-hint"></p>
-            </div>
-          </div>
-
-          <div class="form_item">
-            <label for="tel-input">*Номер телефона</label>
-            <div class="form_input">
-              <input type="tel" name="tel" , value="" , id="tel-input" , placeholder="81234567890" ,
-                autocapitalize="off" ,autocorrect="off" ,autocomplete="tel" , autofocus="autofocus" />
-            </div>
-            <div class="input_hint">
-              <p id="tel-hint"></p>
-            </div>
-          </div>
-
-          <div class="form_item">
-            <label for="date-input">*Дата доставки</label>
-            <div class="form_input">
-              <input type="text" name="username" , value="" , id="date-input" , placeholder="ДД.ММ.ГГГГ" />
-            </div>
-            <div class="input_hint">
-              <p id="date-hint"></p>
-            </div>
-          </div>
-          <div class="form_buttons">
-            <div class="btn btn-active">
-              <button type="reset">Очистить</button>
-            </div>
-            <div class="btn" id="submit-form-btn">
-              <button type=" submit" disabled id="submit_order_btn"> ОК</button>
-            </div>
-          </div>
         </form>
-      </div>
-    </div>
-  </div>
+        <div id="submit-modal" class="submit__modal">
+            <div class="submit__modal__body">
+                <div class="order__form__close" , id="close-modal-button">
+                    <img src="img/cross.svg" alt="cross">
+                </div>
+                <div class="submit__modal__content" >
+                    <p>Ваш заказ успешно принят в обработку!</p>
+                </div>
+            </div>
+        </div>
 </body>
 <script defer src="script/script.js"></script>
 

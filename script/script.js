@@ -15,22 +15,22 @@ function hasValidNameCharacters(name) {
 }
 
 function validateName(name) {
+  name = name.replace(/^\s+|\s+$/gi, "");
   const hint = document.querySelector("#name-hint");
   hint.textContent = "";
   if (!name) return false;
   if (!hasEnoughRussianLetters(name)) {
-    hint.textContent = "Имя должно содержать хотя бы 2 буквы русского алфавита";
+    hint.textContent = "Указан некорректный формат";
     return false;
   }
 
   if (!hasValidNameCharacters(name)) {
-    hint.textContent =
-      "Имя может содержать только буквы русского алфавита, дефисы и пробелы";
+    hint.textContent = "Указан некорректный формат";
     return false;
   }
 
   if (!hasValidNameSize(name)) {
-    hint.textContent = "Длина имени должна быть в диапазоне [2, 25]";
+    hint.textContent = "Указана некорректная длина";
     return false;
   }
 
@@ -38,16 +38,19 @@ function validateName(name) {
 }
 
 // Phone
-function hasValidPhoneSize(name) {
-  return /^(\+7|8)\d{10}$/.test(name);
+function hasValidPhoneSize(phone) {
+  console.log("phone size")
+  phone = phone.replace(/^\+7/g, "8").replace(/\D/g, "");
+  console.log(phone);
+  return /^(\+7|8)\d{10}$/.test(phone);
 }
 
-function isFromRussian(name) {
-  return /^(\+7|8)/.test(name);
+function isFromRussian(phone) {
+  return /^(\+7|8)/g.test(phone);
 }
 
-function hasValidPhoneCharacters(name) {
-  return /^\+?\d{10,12}$/.test(name);
+function hasValidPhoneCharacters(phone) {
+  return /^((8|\+7)[- ]?)(\(?\d{3}\)?[-\s]?)\d{3}[-\s]?\d{2}[-\s]?\d{2}$/.test(phone);
 }
 
 function validatePhone(phone) {
@@ -58,10 +61,10 @@ function validatePhone(phone) {
     hint.textContent = "Недопустимый код страны";
     return false;
   } else if (!hasValidPhoneSize(phone)) {
-    hint.textContent = "Неверный формат номера";
+    hint.textContent = "Указан некорретный формат";
     return false;
   } else if (!hasValidPhoneCharacters(phone)) {
-    hint.textContent = "Специальные символы не допускаются";
+    hint.textContent = "Указан некорретный формат";
     return false;
   }
 
@@ -69,7 +72,7 @@ function validatePhone(phone) {
 }
 function summaryFields() {
   const btn = document.querySelector("#submit_order_btn");
-  const btn_form = document.querySelector("#submit-form-btn");
+  const btn_form = document.querySelector("#submit_order_btn");
   if (validName && validPhone && validDate) {
     btn.disabled = false;
     btn_form.classList.add("btn-active");
@@ -111,13 +114,13 @@ function validateDate(date) {
   hint.textContent = "";
   if (!date) return false;
   if (!hasValidDateFormat(date)) {
-    hint.textContent = "Дата должна быть в формате ДД.ММ.ГГГГ";
+    hint.textContent = "Указан некорретный формат";
     return false;
   } else if (!isValidFutureDate(date)) {
     hint.textContent = "Введена некорретная дата доставки";
     return false;
   } else if (!hasValidDateCharacters(date)) {
-    hint.textContent = "Дата может содержать только цифры и точки";
+    hint.textContent = "Указан некорретный формат";
     return false;
   }
 
@@ -143,3 +146,33 @@ function validateInputs() {
 }
 
 validateInputs();
+document.addEventListener("DOMContentLoaded", function () {
+  const closeButton = document.querySelector("#close-form-button");
+  const formItems = [...document.querySelectorAll(".order__form__item")];
+
+  closeButton.addEventListener("click", function () {
+    formItems.map((item) => item.classList.toggle("collapsed"));
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("order-form");
+  const modal = document.getElementById("submit-modal");
+  const closeButton = document.querySelector("#close-modal-button");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Предотвращаем отправку формы
+
+    // Показываем модальное окно
+    modal.style.display = "block";
+  });
+
+  closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});

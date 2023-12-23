@@ -1,238 +1,147 @@
 * {
-  padding: 0px;
-  margin: 0px;
-  border: none;
-  --active-color: #00a2e7;
-  --active-color-a: #0390cd;
-  --base-color: #d9d9d9;
-  --base-color-a: #c2c2c2;
+  --main-color: #00a2e7;
+  --main-color-a: #0390cd;
+  --disabled-color: #c2c2c2;
+  --unfocus-color: #c2c2c2;
+  --unfocus-color-a: #a7a7a7;
   --cancle-color: #0e0404;
-  --bg-color: #eeeeee;
-  --font-color: #eeeeee;
+  --bg-color: #eee;
+  --err-color: #ff6767;
+  --correct-color: #67ff8a;
+  --err-color-a: #f44545;
+  --font-color: #eee;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Roboto", Helvetica, sans-serif;
-  overflow: hidden;
+  font-size: 16px;
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Links */
-
-a,
-a:link,
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-/* Common */
-
-aside,
-nav,
-footer,
-header,
-section,
-main {
-  display: block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-ul,
-ul li {
-  list-style: none;
-}
-
-img {
-  vertical-align: top;
-}
-
-img,
-svg {
-  max-width: 100%;
-  height: auto;
-}
-
-address {
-  font-style: normal;
-}
-input,
-textarea,
-button,
-select {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  background-color: transparent;
-}
-
-input::-ms-clear {
-  display: none;
-}
-
-button,
-input[type="submit"] {
-  display: inline-block;
-  box-shadow: none;
-  background-color: transparent;
-  background: none;
-  cursor: default;
-}
-
-input:focus,
-input:active,
-button:focus,
-button:active {
-  outline: none;
-}
-
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-button {
-  cursor: pointer;
-}
-button:disabled {
-  cursor: default;
-}
-label {
-  cursor: pointer;
-}
-
-legend {
-  display: block;
-}
-
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: var(--bg-color);
+  background-color: #eeeeee;
 }
-
-.order_form {
+.container {
+  position: relative;
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 10px 10px;
+}
+.order__form {
+  vertical-align: middle;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
-  min-width: 150px;
-  min-height: 300px;
-  padding: 30px 20px;
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
+  background-color: #fff;
+  padding: 20px 20px;
   border-radius: 30px;
   -webkit-box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
 }
-.form_logo {
-  max-width: 150px;
-  max-height: 30px;
+.order__form__item {
+  transition: 1s;
+  padding-top: 30px;
+  max-width: 350px; /* Примерная ширина элемента */
+  width: 100%;
 }
-.form_logo {
-  overflow: hidden;
+.order__form__logo {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  max-width: 200px;
 }
-.form_logo img {
-  height: 100%;
-  width: auto;
-}
-input {
-  padding: 7px 18px;
-  width: 100%;
-  cursor: pointer;
-}
-label {
-  cursor: default;
-  margin-left: 10px;
-}
-label {
-  user-select: none;
-}
-.form_item {
-  margin-bottom: 4px;
-  margin-top: 15px;
-}
-.form_input {
-  transition: 0.3s;
-  width: 100%;
-
-  border: 3px solid var(--base-color);
-  border-radius: 15px;
-}
-.form_input:hover,
-.form_input:focus-within {
-  border-color: var(--active-color);
-}
-.form_buttons {
-  margin-top: 25px;
-  min-width: 370px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-.btn {
-  background-color: var(--base-color);
-  color: var(--font-color);
-  margin-left: 32px;
-  border: none;
-  outline: none;
-  border-radius: 24px;
-  padding: 7px 18px;
-  cursor: default;
-  transition: 0.3s;
-}
-.btn-active {
-  cursor: pointer;
-  background-color: var(--active-color);
-}
-.btn-active:hover,
-.btn-active:focus {
-  background-color: var(--active-color-a);
-}
-.form_close_btn {
+.order__form__close {
+  padding: 3px;
+  background-color: var(--err-color);
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #ff6767;
-  min-width: 30px;
-  min-height: 30px;
+  top: 30px;
+  right: 30px;
+  max-width: 40px;
+  max-height: 40px;
   border-radius: 100%;
   cursor: pointer;
   transition: 0.3s;
 }
-.form_close_btn:hover {
-  background-color: #f44545;
+.order__form__close:hover {
+  background-color: var(--err-color-a);
 }
-.input_hint {
+.order__form__label {
+  padding-left: 15px;
+  user-select: none;
+  cursor: default;
+}
+.order__form__input {
+  transition: 0.3s;
+  margin-top: 5px;
+  border: 3px solid var(--unfocus-color);
+  padding: 7px 18px;
+  border-radius: 15px;
+}
+.order__form__input:hover {
+  border-color: var(--unfocus-color-a);
+}
+.order__form__input:focus-within {
+  border-color: var(--main-color);
+}
+.order__form__button {
+  background-color: var(--main-color);
+  color: var(--font-color);
+  border-radius: 20px;
+  padding: 10px 15px;
+  cursor: default;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.order__form__button:hover,
+.order__form__button:focus {
+  background-color: var(--main-color-a);
+  border-radius: 15px;
+}
+
+.order__form__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
+}
+.order__form__button:disabled {
+  background-color: var(--disabled-color);
+  cursor: default;
+}
+.order__form__button:disabled:hover {
+  border-radius: 20px;
+}
+.order__form__item {
+  transition: all 0.7s ease; /* Увеличиваем время анимации */
+  overflow: hidden;
+  max-height: 150px; /* Примерное значение высоты в исходном состоянии */
+}
+.order__form__item.collapsed {
+  opacity: 0%;
+  max-height: 0;
+  padding-top: 0; /* Убираем верхний отступ для свёрнутого элемента */
+  padding-bottom: 0; /* Убираем нижний отступ для свёрнутого элемента */
+}
+@media (max-width: 370px) {
+  .order__form__logo {
+    max-width: 150px;
+  }
+  .order__form__close {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  .order__form__nav {
+    gap: 30px;
+  }
+}
+@media (max-width: 290px) {
+  .order__form__close {
+    display: none;
+  }
+}
+.form__input__hint p {
+  transition: 0.5s;
   padding-left: 10px;
-  color: #f44545;
+  color: var(--err-color-a);
   margin-top: 6px;
-  font-size: 10px;
+  font-size: 12px;
 }
