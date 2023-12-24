@@ -3,7 +3,7 @@ var validPhone = false;
 var validDate = false;
 // Name
 function hasValidNameSize(name) {
-  return /^[а-яёА-ЯЁ -]{2,25}$/.test(name);
+  return /^[а-яёА-ЯЁ]{2}[а-яёА-ЯЁ -]{0,23}$/.test(name);
 }
 
 function hasEnoughRussianLetters(name) {
@@ -15,10 +15,10 @@ function hasValidNameCharacters(name) {
 }
 
 function validateName(name) {
-  name = name.replace(/^\s+|\s+$/gi, "");
   const hint = document.querySelector("#name-hint");
   hint.textContent = "";
   if (!name) return false;
+  name = name.replace(/^\s+|\s+$/gi, "").replace(/\[-\s]+/g," ");
   if (!hasEnoughRussianLetters(name)) {
     hint.textContent = "Указан некорректный формат";
     return false;

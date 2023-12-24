@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/modal.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
     <title>Bolid Web Form</title>
 </head>
 
 <body>
     <div class="container">
-        <form action="#" , id="order-form">
+        <form action="#"  id="order-form">
             <div class="order__form">
                 <div class="order__form__header">
                     <div class="order__form__logo">
@@ -21,34 +21,34 @@
                             <img src="img/logo.png" alt="log">
                         </a>
                     </div>
-                    <div class="order__form__close" , id="close-form-button">
+                    <div class="order__form__close"  id="close-form-button">
                         <img src="img/cross.svg" alt="cross">
                     </div>
                 </div>
                 <div class="order__form__item">
-                    <label class="order__form__label" , for="name-input">*Имя</label>
-                    <div class="order__form__input" , id="form-name-input">
-                        <input type="text" name="username" , id="name-input" , value="" , placeholder="BOLID" ,
-                            autocapitalize="off" ,autocorrect="off" ,autocomplete="off" , autofocus="autofocus" />
+                    <label class="order__form__label"  for="name-input">*Имя</label>
+                    <div class="order__form__input"  id="form-name-input">
+                        <input type="text" name="username"  id="name-input"  value=""  placeholder="BOLID" 
+                            autocapitalize="off" autocorrect="off" autocomplete="off"  autofocus="autofocus" />
                     </div>
                     <div class="form__input__hint">
                         <p id="name-hint"></p>
                     </div>
                 </div>
                 <div class="order__form__item">
-                    <label class="order__form__label" , for="tel-input">*Номер телефона</label>
-                    <div class="order__form__input" , id="form-tel-input">
-                        <input type="tel" name="tel" , value="" , id="tel-input" , placeholder="+7" ,
-                            autocapitalize="off" ,autocorrect="off" ,autocomplete="off" , autofocus="autofocus" />
+                    <label class="order__form__label"  for="tel-input">*Номер телефона</label>
+                    <div class="order__form__input"  id="form-tel-input">
+                        <input type="tel" name="tel"  value=""  id="tel-input"  placeholder="+7" 
+                            autocapitalize="off" autocorrect="off" autocomplete="off"  autofocus="autofocus" />
                     </div>
                     <div class="form__input__hint">
                         <p id="tel-hint"></p>
                     </div>
                 </div>
                 <div class="order__form__item">
-                    <label class="order__form__label" ,for="date-input">*Дата доставки</label>
-                    <div class="order__form__input" , id="form-date-input">
-                        <input type="text" name="username" , value="" , id="date-input" ,autocomplete="off" ,
+                    <label class="order__form__label" for="date-input">*Дата доставки</label>
+                    <div class="order__form__input"  id="form-date-input">
+                        <input type="text" name="username"  value=""  id="date-input" autocomplete="off" 
                             placeholder="ДД.ММ.ГГГГ" />
                     </div>
                     <div class="form__input__hint">
@@ -57,8 +57,8 @@
                 </div>
                 <div class="order__form__item">
                     <div class="order__form__nav">
-                        <button class="order__form__button" , type="reset">Очистить</button>
-                        <button class="order__form__button" , disabled type="submit" id="submit_order_btn">
+                        <button class="order__form__button"  type="reset">Очистить</button>
+                        <button class="order__form__button"  disabled type="submit" id="submit_order_btn">
                             Заказать</button>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
         </form>
         <div id="submit-modal" class="submit__modal">
             <div class="submit__modal__body">
-                <div class="order__form__close" , id="close-modal-button">
+                <div class="order__form__close"  id="close-modal-button">
                     <img src="img/cross.svg" alt="cross">
                 </div>
                 <div class="submit__modal__content" >
@@ -75,6 +75,5 @@
             </div>
         </div>
 </body>
-<script defer src="script/script.js"></script>
-
+<script src="script/script.js"></script>
 </html>
