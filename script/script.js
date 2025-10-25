@@ -18,7 +18,7 @@ function validateName(name) {
   const hint = document.querySelector("#name-hint");
   hint.textContent = "";
   if (!name) return false;
-  name = name.replace(/^\s+|\s+$/gi, "").replace(/\[-\s]+/g," ");
+  name = name.replace(/^\s+|\s+$/g, "").replace(/[-\s]+/g, " ");
   if (!hasEnoughRussianLetters(name)) {
     hint.textContent = "Указан некорректный формат";
     return false;
@@ -39,9 +39,6 @@ function validateName(name) {
 
 // Phone
 function hasValidPhoneSize(phone) {
-  console.log("phone size")
-  phone = phone.replace(/^\+7/g, "8").replace(/\D/g, "");
-  console.log(phone);
   return /^(\+7|8)\d{10}$/.test(phone);
 }
 
@@ -50,7 +47,9 @@ function isFromRussian(phone) {
 }
 
 function hasValidPhoneCharacters(phone) {
-  return /^((8|\+7)[- ]?)(\(?\d{3}\)?[-\s]?)\d{3}[-\s]?\d{2}[-\s]?\d{2}$/.test(phone);
+  return /^((8|\+7)[- ]?)(\(?\d{3}\)?[-\s]?)\d{3}[-\s]?\d{2}[-\s]?\d{2}$/.test(
+    phone
+  );
 }
 
 function validatePhone(phone) {
@@ -61,7 +60,7 @@ function validatePhone(phone) {
     hint.textContent = "Недопустимый код страны";
     return false;
   } else if (!hasValidPhoneSize(phone)) {
-    hint.textContent = "Указан некорретный формат";
+    hint.textContent = "Указан некорректный формат";
     return false;
   } else if (!hasValidPhoneCharacters(phone)) {
     hint.textContent = "Указан некорретный формат";
@@ -72,13 +71,12 @@ function validatePhone(phone) {
 }
 function summaryFields() {
   const btn = document.querySelector("#submit_order_btn");
-  const btn_form = document.querySelector("#submit_order_btn");
   if (validName && validPhone && validDate) {
     btn.disabled = false;
-    btn_form.classList.add("btn-active");
+    btn.classList.add("btn-active");
   } else {
     btn.disabled = true;
-    btn_form.classList.remove("btn-active");
+    btn.classList.remove("btn-active");
   }
 }
 // Date
@@ -106,8 +104,8 @@ function isValidFutureDate(date) {
 function hasValidDateFormat(date) {
   return /^\d{2}\.\d{2}\.\d{4}$/.test(date);
 }
-function hasValidDateCharacters(name) {
-  return /^[\.\d]+$/.test(name);
+function hasValidDateCharacters(date) {
+  return /^[\.\d]+$/.test(date);
 }
 function validateDate(date) {
   const hint = document.querySelector("#date-hint");
